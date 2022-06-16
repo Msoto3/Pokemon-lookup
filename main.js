@@ -1,5 +1,5 @@
 let res = prompt("Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n\nRefresh the page to choose a new Pokemon.");
-while(parseInt(res)<1 || parseInt(res)>898 ){
+while(parseInt(res)<1 || parseInt(res)>898 || !parseInt(res) ){
     res = prompt("Invalid, Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n\nRefresh the page to choose a new Pokemon.");
  }
 
