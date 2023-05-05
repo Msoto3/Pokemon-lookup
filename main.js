@@ -1,16 +1,19 @@
-let res = prompt("Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n\nRefresh the page to choose a new Pokemon.");
-while(parseInt(res)<1 || parseInt(res)>898 || !parseInt(res) ){
-    res = prompt("Invalid, Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n\nRefresh the page to choose a new Pokemon.");
+let res = prompt("Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n");
+ while(parseInt(res)<1 || parseInt(res)>898 || !parseInt(res)){
+    res = prompt("Invalid, Please enter the ID number for the pokemon.\nChoose a number from 1-898.\n12");
  }
 
+
+ let btn = document.querySelector("#btn");
+btn.style.display = "block"
 const apiData = {
     url: 'https://pokeapi.co/api/v2/',
     type: 'pokemon',
     id: res,
-};
+}
 
 const {url,type,id} = apiData;
-const apiUrl = `${url}${type}/${id}`;
+const apiUrl = `${url}${type}/${id}`
 
 fetch(apiUrl)
     .then( (data) => {
@@ -30,8 +33,9 @@ const genHtml = (data) =>{
             <span>#${data.id}</span>
         </div>
         <div class='details'>${data.types[0].type.name}</div>
-    `;
-    const pokDiv = document.querySelector('.pokemon');
-    pokDiv.innerHTML = html;
+    `
+    const pokDiv = document.querySelector('.pokemon')
+    pokDiv.innerHTML = html
 
 }
+btn.addEventListener("click", () =>{location.reload()})
